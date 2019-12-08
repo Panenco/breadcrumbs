@@ -57,6 +57,6 @@ export const BreadcrumbsAnchor: React.FunctionComponent<BreadcrumbsAnchorProps> 
   return null;
 };
 
-BreadcrumbsAnchor.displayName = 'Breadcrumbs🥖Anchor';
+BreadcrumbsAnchor.displayName = 'Breadcrumbs🥖Anchor⚓️';
 
 export default BreadcrumbsAnchor;

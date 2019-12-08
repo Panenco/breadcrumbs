@@ -10,8 +10,14 @@ export interface BreadcrumbsProps {
   id?: string;
 }
 
+const ItemFallback: React.FunctionComponent<BreadcrumbsItemRoute> = ({ link, path, component, itemProps }) => (
+  <div {...itemProps}>{component}</div>
+);
+const DividerFallback: React.FunctionComponent = () => <span>/</span>;
+const ContainerFallback = 'div';
+
 export const Breadcrumbs: React.FunctionComponent<BreadcrumbsProps> = ({
-  components: { Item, Divider, Container },
+  components: { Item = ItemFallback, Divider = DividerFallback, Container = ContainerFallback },
   id = '_default',
   ...props
 }) => {
@@ -26,7 +32,7 @@ export const Breadcrumbs: React.FunctionComponent<BreadcrumbsProps> = ({
     </React.Fragment>
   ));
 
-  return React.createElement(Container, props, breadcrumbs);
+  return React.createElement(Container as any, props, breadcrumbs);
 };
 
 Breadcrumbs.displayName = 'Breadcrumbs🥖';
