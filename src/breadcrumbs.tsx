@@ -17,7 +17,7 @@ const DividerFallback: React.FunctionComponent = () => <span>/</span>;
 const ContainerFallback = 'div';
 
 export const Breadcrumbs: React.FunctionComponent<BreadcrumbsProps> = ({
-  components: { Item = ItemFallback, Divider = DividerFallback, Container = ContainerFallback },
+  components: { Item = ItemFallback, Divider = DividerFallback, Container = ContainerFallback } = {},
   id = '_default',
   ...props
 }) => {

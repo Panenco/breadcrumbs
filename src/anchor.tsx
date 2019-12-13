@@ -40,7 +40,7 @@ export const BreadcrumbsAnchor: React.FunctionComponent<BreadcrumbsAnchorProps> 
         id,
       );
     };
-  });
+  }, []);
 
   React.useEffect(() => {
     update(

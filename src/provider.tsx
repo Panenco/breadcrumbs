@@ -47,15 +47,14 @@ class BreadcrumbsProvider extends React.Component<BreadcrumbsProviderProps, Brea
   };
 
   render() {
-    const { Provider } = this.context;
     return (
-      <Provider
+      <BreadcrumbsContext.Provider
         value={{ routes: this.state.routes, register: this.register, unregister: this.unregister, update: this.update }}
       >
         {this.props.children}
-      </Provider>
+      </BreadcrumbsContext.Provider>
     );
   }
 }
 
-export default BreadcrumbsProvider;
+export { BreadcrumbsProvider };
