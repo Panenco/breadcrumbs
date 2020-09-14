@@ -2,10 +2,9 @@
 
 ## Installation
 
-To install breadcrumbs from Panenco's registry follow next steps:
+To install breadcrumbs follow next steps:
 
-1. Create `.npmrc` file with the next content `registry=https://npm.pkg.github.com/Panenco` near to your `package.json` file you want to add this package to
-2. `npm install @panenco/breadcrumbs`
+`npm i @panenco/breadcrumbs`
 
 ## Usage
 
