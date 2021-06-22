@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { BreadcrumbsContext } from 'context';
+import { BreadcrumbsContext } from './context';
 
 interface BreadcrumbsAnchorProps {
   path: string;
   link: string;
-  component: React.ElementType;
+  component: React.ReactElement;
   itemProps?: object;
   id?: string;
 }
@@ -21,10 +21,10 @@ export const BreadcrumbsAnchor: React.FunctionComponent<BreadcrumbsAnchorProps> 
   React.useEffect(() => {
     register(
       {
-        link: link,
-        path: path,
-        component: component,
-        itemProps: itemProps,
+        link,
+        path,
+        component,
+        itemProps,
       },
       id,
     );
@@ -32,10 +32,10 @@ export const BreadcrumbsAnchor: React.FunctionComponent<BreadcrumbsAnchorProps> 
     return () => {
       unregister(
         {
-          link: link,
-          path: path,
-          component: component,
-          itemProps: itemProps,
+          link,
+          path,
+          component,
+          itemProps,
         },
         id,
       );
@@ -45,10 +45,10 @@ export const BreadcrumbsAnchor: React.FunctionComponent<BreadcrumbsAnchorProps> 
   React.useEffect(() => {
     update(
       {
-        link: link,
-        path: path,
-        component: component,
-        itemProps: itemProps,
+        link,
+        path,
+        component,
+        itemProps,
       },
       id,
     );

@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext } from 'react';
 
 export interface BreadcrumbsItemRoute {
   link: string;
   path: string;
-  component: React.ElementType;
+  component: React.ReactElement;
   itemProps?: object;
 }
 
