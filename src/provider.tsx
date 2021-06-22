@@ -1,25 +1,23 @@
 import * as React from 'react';
-import { BreadcrumbsRoutesMap, BreadcrumbsContext, BreadcrumbsItemRoute } from 'context';
+import { BreadcrumbsRoutesMap, BreadcrumbsContext, BreadcrumbsItemRoute } from './context';
 
 export interface BreadcrumbsProviderProps {
-  children: React.ElementType;
+  children: React.ReactElement;
 }
 
 export interface BreadcrumbsProviderState {
   routes: BreadcrumbsRoutesMap;
 }
 
-class BreadcrumbsProvider extends React.Component<BreadcrumbsProviderProps, BreadcrumbsProviderState> {
-  static contextType = BreadcrumbsContext;
-  static displayName = 'Breadcrumbs🥖Provider';
-
+export class BreadcrumbsProvider extends React.Component<BreadcrumbsProviderProps, BreadcrumbsProviderState> {
+  // eslint-disable-next-line react/state-in-constructor
   state = {
     routes: {
       _default: [],
     },
   };
 
-  register = (route: BreadcrumbsItemRoute, id: string) => {
+  register = (route: BreadcrumbsItemRoute, id: string): void => {
     this.setState(state => ({
       routes: {
         ...state.routes,
@@ -28,7 +26,7 @@ class BreadcrumbsProvider extends React.Component<BreadcrumbsProviderProps, Brea
     }));
   };
 
-  unregister = (route: BreadcrumbsItemRoute, id: string) => {
+  unregister = (route: BreadcrumbsItemRoute, id: string): void => {
     this.setState(state => ({
       routes: {
         ...state.routes,
@@ -37,7 +35,7 @@ class BreadcrumbsProvider extends React.Component<BreadcrumbsProviderProps, Brea
     }));
   };
 
-  update = (route: BreadcrumbsItemRoute, id: string) => {
+  update = (route: BreadcrumbsItemRoute, id: string): void => {
     this.setState(state => ({
       routes: {
         ...state.routes,
@@ -47,14 +45,16 @@ class BreadcrumbsProvider extends React.Component<BreadcrumbsProviderProps, Brea
   };
 
   render() {
+    const { children } = this.props;
+    const { routes } = this.state;
     return (
       <BreadcrumbsContext.Provider
-        value={{ routes: this.state.routes, register: this.register, unregister: this.unregister, update: this.update }}
+        value={{ routes, register: this.register, unregister: this.unregister, update: this.update }}
       >
-        {this.props.children}
+        {children}
       </BreadcrumbsContext.Provider>
     );
   }
 }
 
-export { BreadcrumbsProvider };
+BreadcrumbsProvider.contextType = BreadcrumbsContext;
