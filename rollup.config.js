@@ -1,9 +1,9 @@
 import path from 'path';
 
-import resolve from 'rollup-plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript2';
-import commonjs from 'rollup-plugin-commonjs';
-import replace from 'rollup-plugin-replace';
+import commonjs from '@rollup/plugin-commonjs';
+import replace from '@rollup/plugin-replace';
 
 import packageJson from './package.json';
 
@@ -35,14 +35,13 @@ export default {
   external,
   plugins: [
     replace({
+      preventAssignment: true,
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
-    resolve({
+    nodeResolve({
       browser: true,
       extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
-      customResolveOptions: {
-        moduleDirectory: ['node_modules', paths.src],
-      },
+      moduleDirectory: ['node_modules', paths.src],
     }),
     typescript({
         clean: true
