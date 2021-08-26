@@ -27,7 +27,7 @@ export const Breadcrumbs: React.FunctionComponent<BreadcrumbsProps> = ({
 
   const breadcrumbs = items.map((item, i) => (
     <React.Fragment key={`breadcrumbs_${id}_${item.path}`}>
-      {React.createElement(Item, item)}
+      {item.disabled ? React.createElement(ItemFallback, item) : React.createElement(Item, item)}
       {i + 1 !== items.length && React.createElement(Divider)}
     </React.Fragment>
   ));

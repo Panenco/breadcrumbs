@@ -43,6 +43,8 @@ Place `BreadcrumbsAnchor` component on the routes you want to appear in breadcru
   Unique path 'level' needed to identify registered breadcrumb item.
 - `link: string`
   URL your breadcrumb item click will lead to.
+- `disabled?: boolean`
+  Fallback link to non-clickable (div) component.
 - `component: React.ElementType`
   Any valid React node you like to render inside your `Item` component.
 - `itemProps?: object`

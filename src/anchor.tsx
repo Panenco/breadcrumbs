@@ -6,12 +6,14 @@ interface BreadcrumbsAnchorProps {
   link: string;
   component: React.ReactElement;
   itemProps?: object;
+  disabled?: boolean;
   id?: string;
 }
 
 export const BreadcrumbsAnchor: React.FunctionComponent<BreadcrumbsAnchorProps> = ({
   path,
   link,
+  disabled,
   component,
   itemProps = {},
   id = '_default',
@@ -23,6 +25,7 @@ export const BreadcrumbsAnchor: React.FunctionComponent<BreadcrumbsAnchorProps> 
       {
         link,
         path,
+        disabled,
         component,
         itemProps,
       },
@@ -34,6 +37,7 @@ export const BreadcrumbsAnchor: React.FunctionComponent<BreadcrumbsAnchorProps> 
         {
           link,
           path,
+          disabled,
           component,
           itemProps,
         },
@@ -47,6 +51,7 @@ export const BreadcrumbsAnchor: React.FunctionComponent<BreadcrumbsAnchorProps> 
       {
         link,
         path,
+        disabled,
         component,
         itemProps,
       },
