@@ -4,6 +4,7 @@ import { createContext } from 'react';
 export interface BreadcrumbsItemRoute {
   link: string;
   path: string;
+  disabled?: boolean;
   component: React.ReactElement;
   itemProps?: object;
 }
